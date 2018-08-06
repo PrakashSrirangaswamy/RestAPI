@@ -2,7 +2,11 @@ package org.prakash.rest.restAPI.DAO;
 
 import java.util.Calendar;
 import java.util.List;
-
+/**
+ * 
+ * @author prakashsrirangaswamy
+ *
+ */
 public class GoogleAPIDAO {
 	int id;
 	String place_id;
