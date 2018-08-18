@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response;
 import org.prakash.rest.restAPI.Objects.GoogleAPIResults;
 import org.prakash.rest.restAPI.Objects.InstaResponse;
 import org.prakash.rest.restAPI.Objects.MapsResponseObj;
+import org.prakash.rest.services.GoogleMapsServices;
 import org.prakash.rest.util.URLBuilder;
 
 
@@ -31,27 +32,29 @@ public class MyResource {
      * @param zipcode
      * @return
      */
-//    @GET
-//    @Path("/{zipcode}")
-//   public MapsResponseObj getIt(@PathParam("zipcode") int zipcode) {
-//    	Client client = ClientBuilder.newClient();
-//    	Response response = client.target(URLBuilder.buildURLForZip((zipcode))).request().get();
-//    
-//    	if(response.getStatus() == 200) {
-//    		System.out.println(" Success ");
-//    	}else {
-//    		System.out.println(" Failed to get data "+ response.getStatus());
-//    	}
-//    	
-//    	MapsResponseObj results = response.readEntity(MapsResponseObj.class);
-//  
-//    	for(GoogleAPIResults gps:results.getResults()) {
-//    		System.out.println(gps.getFormatted_address());
-//    	}
-//    	
-//    	
-//        return results;
-//    }
+    @GET
+    @Path("/{zipcode}")
+   public MapsResponseObj getIt(@PathParam("zipcode") int zipcode) {
+    	Client client = ClientBuilder.newClient();
+    	Response response = client.target(URLBuilder.buildURLForZip((zipcode))).request().get();
+    
+    	if(response.getStatus() == 200) {
+    		System.out.println(" Success ");
+    	}else {
+    		System.out.println(" Failed to get data "+ response.getStatus());
+    	}
+    	
+    	MapsResponseObj results = response.readEntity(MapsResponseObj.class);
+  
+    	for(GoogleAPIResults gps:results.getResults()) {
+    		System.out.println(gps.getFormatted_address());
+    		GoogleMapsServices gms = new GoogleMapsServices(); 
+    		gms.addDatatoDB(zipcode, gps.getFormatted_address());
+    	}
+    	
+    	
+        return results;
+    }
     /**
      * static zip code 
      * @return
