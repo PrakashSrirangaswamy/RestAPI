@@ -2,12 +2,17 @@ package org.prakash.rest.restAPI.DAO;
 
 import java.util.Calendar;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 /**
  * 
  * @author prakashsrirangaswamy
  *
  */
+@Entity
 public class GoogleAPIDAO {
+	@Id
 	int id;
 	String place_id;
 	int zipCode;
