@@ -14,4 +14,9 @@ public class URLBuilder {
 		
 	}
 
+	public static String buildURLForInsta(String access_token) {
+		// TODO Auto-generated method stub
+		return "https://api.instagram.com/v1/users/self/?access_token="+access_token;
+	}
+
 }
