@@ -13,7 +13,6 @@ import javax.ws.rs.core.Response;
 
 import org.prakash.rest.restAPI.Objects.InstaResponse;
 import org.prakash.rest.restAPI.Objects.MapsResponseObj;
-import org.prakash.rest.services.GoogleMapsServices;
 import org.prakash.rest.util.URLBuilder;
 
 
@@ -42,7 +41,7 @@ public class MyResource {
     		System.out.println(" Failed to get data "+ response.getStatus());
     	}
     	MapsResponseObj results = response.readEntity(MapsResponseObj.class);
-    	GoogleMapsServices.processResponseObj(results, zipcode);
+    	//GoogleMapsServices.processResponseObj(results, zipcode);
         return results;
     }
     
