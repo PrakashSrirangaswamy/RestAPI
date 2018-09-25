@@ -7,7 +7,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.Response;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -18,7 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class GoogleMapsResources {
 	
 	
-	@GetMapping("/ZipCode")
+	//@GetMapping("/ZipCode")
+	@RequestMapping("/ZipCode")
 	public String returnGoogleData() {
 		
 		Client client = ClientBuilder.newClient();
