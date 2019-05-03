@@ -48,7 +48,6 @@ public class MyResource {
     
     @GET 
     public InstaResponse getInstaResponse(@QueryParam("access_token") String access_token) {
-    	System.out.println(access_token);
     	Client client = ClientBuilder.newClient();
     	Response response = client.target(URLBuilder.buildURLForInsta(access_token)).request().get();
     	InstaResponse results = response.readEntity(InstaResponse.class);
