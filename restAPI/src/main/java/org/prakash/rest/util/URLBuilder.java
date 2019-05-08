@@ -9,7 +9,6 @@ public class URLBuilder {
 	public static String buildURLForZip(int zipcode) {
 		
 		String url = "https://maps.googleapis.com/maps/api/geocode/json?address="+zipcode; 
-		System.out.println(url);
 		return url;
 		
 	}
