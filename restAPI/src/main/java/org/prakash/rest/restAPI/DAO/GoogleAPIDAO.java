@@ -18,8 +18,7 @@ public class GoogleAPIDAO {
 	int zipCode;
 	String location;
 	Calendar timestamp; 
-	String latitude;
-	String longitude;
+	
 	List<CountyDetailsDAO> countyDetails; 
 	
 	public List<CountyDetailsDAO> getCountyDetails() {
@@ -58,17 +57,6 @@ public class GoogleAPIDAO {
 	public void setTimestamp(Calendar timestamp) {
 		this.timestamp = timestamp;
 	}
-	public String getLatitude() {
-		return latitude;
-	}
-	public void setLatitude(String latitude) {
-		this.latitude = latitude;
-	}
-	public String getLongitude() {
-		return longitude;
-	}
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
-	} 
+	
 	
 }
