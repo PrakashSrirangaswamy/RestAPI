@@ -48,7 +48,6 @@ function isValidEmailAddress(emailAddress) {
 <div>Email			:<input type="text" id="eMail" name="eMail"> </div>
 <button id="create">Create</button>
 <button id="cancel">Cancel</button>
-<p> {$displayName} </p>
 </form>
 </body>
 </html>
