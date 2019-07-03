@@ -36,7 +36,7 @@ public class CustInformation {
 		ui.setEmailID((String) req.getParameter("eMail"));
 		System.out.println(ui.toString());
 
-		return "CustInformation.jsp";
+		return "index.jsp";
 	}
 
 }
