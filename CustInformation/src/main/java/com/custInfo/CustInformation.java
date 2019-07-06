@@ -40,18 +40,6 @@ public class CustInformation {
 		ui.setEmailID((String) req.getParameter("eMail"));
 		System.out.println(ui.toString());
 		
-		List<String>  lst = new ArrayList<String>();
-		String c_session_end = "" ;
-		lst.add(c_session_end);
-		int out_user_session_counter = 0; 
-		
-		Iterator<String> itr = lst.iterator(); 
-		if(itr.hasNext() ) {
-			
-			if (itr.next()== "session end")
-			out_user_session_counter++; 
-		}
-
 		return "index.jsp";
 	}
 	
