@@ -39,8 +39,13 @@ function isValidEmailAddress(emailAddress) {
     return pattern.test(emailAddress);
 }
 </script>
+<style>
+div{"color:red"}
+</style>
 </head>
 <body>
+
+<h2 style="color: red">User Info</h2>
 <form action= "CustInformation">
 <div>First Name 	:<input type="text" id="FName" name="FName"> </div>
 <div>Last Name  	:<input type="text" id="LName" name="LName"> </div>
