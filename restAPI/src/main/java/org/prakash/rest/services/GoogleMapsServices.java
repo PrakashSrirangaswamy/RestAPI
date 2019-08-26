@@ -33,6 +33,7 @@ public class GoogleMapsServices{
 		collection.drop();
 		}
 		System.out.println("ID "+doc.get("_id"));
+		System.out.println("Added to DB :) ");
 
 	}
 

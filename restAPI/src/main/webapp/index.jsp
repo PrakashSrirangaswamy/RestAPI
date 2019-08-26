@@ -4,5 +4,12 @@
     <p><a href="webapi/myresource">Jersey resource</a>
     <p>Visit <a href="http://jersey.java.net">Project Jersey website</a>
     for more information on Jersey!
+    
+    <button onclick=document.getElementbyID(check)>click here</button>
+    
+    <p id=check> clicked </p>
+    <script type="text/javascript">
+    
+    </script>
 </body>
 </html>

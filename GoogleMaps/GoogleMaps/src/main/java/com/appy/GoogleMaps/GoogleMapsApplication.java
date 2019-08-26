@@ -2,11 +2,15 @@ package com.appy.GoogleMaps;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class GoogleMapsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GoogleMapsApplication.class, args);
+		ConfigurableApplicationContext context = SpringApplication.run(GoogleMapsApplication.class, args);
+		
 	}
+	
+
 }

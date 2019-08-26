@@ -49,5 +49,12 @@ public class CustInformation {
 		
 		return "CustInformation.jsp";
 	}
+	
+	
+	@RequestMapping(value="/CustnformationCSS.css")
+	public String getCSSFile()
+	{
+		return "CustnformationCSS.css"; 
+	}
 
 }

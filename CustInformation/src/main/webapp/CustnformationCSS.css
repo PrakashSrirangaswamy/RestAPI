@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.text_box{
+	size: 40;
+	align-self: auto;
+	border-color: "green";
+	border-top-style: double;
+	font-family: monospace serif;
+}
+
+input{
+	size: 100px;
+	align-self: auto;
+	border-color: "green";
+	border-top-style: double;
+	font-family: monospace serif;
+}

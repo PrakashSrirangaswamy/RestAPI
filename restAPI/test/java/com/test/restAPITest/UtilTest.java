@@ -24,4 +24,13 @@ class UtilTest {
 		
 	}
 
+	@Test
+	void testURL() {
+		
+		URLBuilder url = new URLBuilder();
+		
+		assertEquals("https://maps.googleapis.com/maps/api/geocode/json?address=78430",url.buildURLForZip(78430));
+		
+		
+	}
 }
