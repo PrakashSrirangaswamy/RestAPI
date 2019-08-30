@@ -1,8 +1,12 @@
 package mflix.api.daos;
 
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.model.*;
+import static com.mongodb.client.model.Projections.fields;
+import static com.mongodb.client.model.Projections.include;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
@@ -10,14 +14,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import static com.mongodb.client.model.Filters.and;
-import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Projections.fields;
-import static com.mongodb.client.model.Projections.include;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Aggregates;
+import com.mongodb.client.model.BsonField;
+import com.mongodb.client.model.BucketOptions;
+import com.mongodb.client.model.Facet;
+import com.mongodb.client.model.Field;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Projections;
+import com.mongodb.client.model.Sorts;
 
 @Component
 public class MovieDao extends AbstractMFlixDao {
@@ -187,7 +193,9 @@ public class MovieDao extends AbstractMFlixDao {
 		// TODO > Ticket: Paging - implement the necessary cursor methods to support
 		// simple
 		// pagination like skip and limit in the code below
-		moviesCollection.find(castFilter).sort(sort).iterator().forEachRemaining(movies::add);
+		
+		
+		moviesCollection.find(castFilter).sort(sort).limit(limit).skip(skip).iterator().forEachRemaining(movies::add);
 		return movies;
 	}
 
@@ -263,7 +271,12 @@ public class MovieDao extends AbstractMFlixDao {
 		// Your job is to order the stages correctly in the pipeline.
 		// Starting with the `matchStage` add the remaining stages.
 		pipeline.add(matchStage);
-
+		pipeline.add(sortStage);
+		pipeline.add(skipStage);
+		pipeline.add(limitStage);
+		pipeline.add(facetStage);
+		
+		
 		moviesCollection.aggregate(pipeline).iterator().forEachRemaining(movies::add);
 		return movies;
 	}
